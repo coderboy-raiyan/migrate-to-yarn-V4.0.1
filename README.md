@@ -1,24 +1,40 @@
-### Migrate to yarn Version 4.0.1
+# Yarn Version 4.0.1 Migration Guide
 
-##### How does it work?
+## Why Upgrade?
 
-If you look into the files in your project, you may notice the absence of a node_modules folder. This is unusual! We regularly get asked on Discord where the folder is, by people thinking yarn install silently failed.
+Yarn 4.0.1 brings exciting enhancements, notably with the adoption of Yarn Plug'n'Play (PnP) as the default installation strategy. This replaces the conventional `node_modules` folder, offering a more efficient and streamlined dependency management process.
 
-The thing is, this is actually expected! The way Yarn PnP works, it tells Yarn to generate a single Node.js loader file in place of the typical node_modules folder. This loader file, named .pnp.cjs, contains all information about your project's dependency tree, informing your tools as to the location of the packages on the disk and letting them know how to resolve require and import calls.
+## Upgrade Steps
 
-- Steps
+1. **Set Yarn to the Latest Stable Version:**
 
-1. First of all put this command to your terminal for upgrade to the new version
+   ```bash
+   yarn set version stable
+   yarn install
+   ```
 
-```
-yarn set version stable
-yarn install
-```
+2. **Configure Yarn to Use Node Modules (Optional):**
+   If you prefer using the traditional `node_modules` folder, execute the following command:
+   ```bash
+   yarn config set nodeLinker node-modules
+   ```
 
-2. Yarn's new version uses the pnp js folder for track dependencies by default. If you wanted to use "node_module" folder you have put this command in your project terminal
+## How Yarn PnP Works
 
-```
-yarn config set nodeLinker node-modules
-```
+- **No More node_modules:**
+  Yarn PnP generates a single Node.js loader file (`.pnp.cjs`) instead of the usual `node_modules` folder. This file encapsulates all information about your project's dependencies.
 
-##### Note : Yarn Plug'n'Play (generally referred to as Yarn PnP) is the default installation strategy in modern releases of Yarn. It can be swapped out for more traditional approaches (including node_modules installs, or pnpm-style symlink-based approaches), but we recommend it when creating new projects due to its numerous improvements.
+- **Efficient Dependency Tracking:**
+  The loader file informs tools about package locations on the disk, facilitating quick and efficient resolution of `require` and `import` calls.
+
+## Note on Yarn PnP
+
+Yarn PnP is the default installation strategy in modern Yarn releases. While alternative approaches are available, Yarn PnP is recommended for new projects due to its numerous benefits.
+
+## Additional Resources
+
+Check the [official readme](https://yarnpkg.com/getting-started/migration#upgrading-to-yarn-2) for comprehensive details.
+
+## Conclusion
+
+Upgrading to Yarn Version 4.0.1 with Yarn PnP streamlines your project's dependency management, enhancing efficiency and providing a more modern development experience. Embrace the future of package management with Yarn!

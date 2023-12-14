@@ -1,6 +1,3 @@
-Certainly! Here's the formatted version for your README.md:
-
-````markdown
 # Yarn Version 4.0.1 Migration Guide
 
 ## Why Upgrade?
@@ -31,7 +28,6 @@ You can use the following command to switch to a different Yarn version:
 ```bash
 yarn set version <version>
 ```
-````
 
 For example, if you want the latest version, you can run:
 
@@ -42,7 +38,7 @@ yarn set version latest
 You can also set it to a specific number, for example:
 
 ```bash
-yarn set version 1.22.1
+yarn set version <version_number> // 1.22.19
 ```
 
 ## How Yarn PnP Works

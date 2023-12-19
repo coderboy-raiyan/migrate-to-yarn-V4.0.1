@@ -32,7 +32,7 @@ yarn set version <version>
 For example, if you want the latest version, you can run:
 
 ```bash
-yarn set version latest
+ yarn set version stable
 ```
 
 You can also set it to a specific number, for example:

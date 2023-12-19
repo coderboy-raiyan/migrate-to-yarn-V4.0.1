@@ -1,4 +1,4 @@
-# Yarn Version 4.0.1 Migration Guide
+# Yarn Usage and Migrations step by step
 
 ## Why Upgrade?
 
